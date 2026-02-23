@@ -19,7 +19,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/DropInBlog/n8n-nodes.git"
+		"url": "https://github.com/DropInBlog/n8n-nodes-dropinblog.git"
 	},
 	"engines": {
 		"node": ">=18.10",
