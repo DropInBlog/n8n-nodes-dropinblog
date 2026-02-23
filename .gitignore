@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# IDE
+.idea/
+.vscode/
+
+# n8n
+.n8n/
+
+# Environment
+.env
