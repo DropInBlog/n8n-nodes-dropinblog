@@ -1,6 +1,6 @@
 {
 	"name": "@dropinblog/n8n-nodes-dropinblog",
-	"version": "1.0.0",
+	"version": "1.0.10",
 	"description": "n8n community node for DropInBlog - Create posts and receive webhook notifications when posts are published",
 	"keywords": [
 		"n8n-community-node-package",
@@ -15,7 +15,8 @@
 	},
 	"homepage": "https://dropinblog.com",
 	"author": {
-		"name": "DropInBlog"
+		"name": "DropInBlog",
+		"email": "info@dropinblog.com"
 	},
 	"repository": {
 		"type": "git",
