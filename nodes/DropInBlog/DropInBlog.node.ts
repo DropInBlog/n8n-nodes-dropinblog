@@ -295,13 +295,12 @@ export class DropInBlog implements INodeType {
 
 			async getStatuses(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				const returnData: INodePropertyOptions[] = [];
-				const statuses = await this.helpers.requestWithAuthentication.call(
+				const statuses = await this.helpers.httpRequestWithAuthentication.call(
 					this,
 					'dropInBlogOAuth2Api',
 					{
 						method: 'GET',
 						url: `${API_BASE_URL}/v2/automations/statuses`,
-						json: true,
 					},
 				);
 				for (const status of statuses as IDataObject[]) {
@@ -340,14 +339,13 @@ export class DropInBlog implements INodeType {
 						};
 
 						// the write endpoint for posts
-						const response = await this.helpers.requestWithAuthentication.call(
+						const response = await this.helpers.httpRequestWithAuthentication.call(
 							this,
 							'dropInBlogOAuth2Api',
 							{
 								method: 'POST',
 								url: `${API_BASE_URL}/v2/blog/${blogId}/posts`,
 								body,
-								json: true,
 							},
 						);
 
@@ -361,13 +359,12 @@ export class DropInBlog implements INodeType {
 						const postIdentifier = this.getNodeParameter('postIdentifier', i) as string;
 
 						// the read endpoint for individual posts
-						const response = await this.helpers.requestWithAuthentication.call(
+						const response = await this.helpers.httpRequestWithAuthentication.call(
 							this,
 							'dropInBlogOAuth2Api',
 							{
 								method: 'GET',
 								url: `${API_BASE_URL}/v2/automations/${blogId}/posts/${encodeURIComponent(postIdentifier)}`,
-								json: true,
 							},
 						);
 
@@ -390,14 +387,13 @@ export class DropInBlog implements INodeType {
 						}
 
 						// the read/search endpoint for posts
-						const response = await this.helpers.requestWithAuthentication.call(
+						const response = await this.helpers.httpRequestWithAuthentication.call(
 							this,
 							'dropInBlogOAuth2Api',
 							{
 								method: 'GET',
 								url: `${API_BASE_URL}/v2/automations/${blogId}/posts/search`,
 								qs,
-								json: true,
 							},
 						);
 

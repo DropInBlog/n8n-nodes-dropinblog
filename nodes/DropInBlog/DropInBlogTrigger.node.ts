@@ -96,14 +96,13 @@ export class DropInBlogTrigger implements INodeType {
 					source: 'n8n',
 				};
 
-				const response = await this.helpers.requestWithAuthentication.call(
+				const response = await this.helpers.httpRequestWithAuthentication.call(
 					this,
 					'dropInBlogOAuth2Api',
 					{
 						method: 'POST',
 						url: `${API_BASE_URL}/v2/blog/${blogId}/webhooks`,
 						body,
-						json: true,
 					},
 				);
 
@@ -123,13 +122,12 @@ export class DropInBlogTrigger implements INodeType {
 
 				if (webhookData.webhookId !== undefined) {
 					try {
-						await this.helpers.requestWithAuthentication.call(
+						await this.helpers.httpRequestWithAuthentication.call(
 							this,
 							'dropInBlogOAuth2Api',
 							{
 								method: 'DELETE',
 								url: `${API_BASE_URL}/v2/blog/${webhookData.blogId}/webhooks/${webhookData.webhookId}`,
-								json: true,
 							},
 						);
 						delete webhookData.webhookId;

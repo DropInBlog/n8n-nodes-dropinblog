@@ -7,13 +7,12 @@ import { API_BASE_URL } from './constants';
 
 export async function getBlogs(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 	const returnData: INodePropertyOptions[] = [];
-	const blogs = await this.helpers.requestWithAuthentication.call(
+	const blogs = await this.helpers.httpRequestWithAuthentication.call(
 		this,
 		'dropInBlogOAuth2Api',
 		{
 			method: 'GET',
 			url: `${API_BASE_URL}/v2/automations/blogs`,
-			json: true,
 		},
 	);
 	for (const blog of blogs as IDataObject[]) {
